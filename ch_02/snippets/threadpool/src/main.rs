@@ -16,3 +16,5 @@ fn main() {
 
     println!("result: {}", rx.iter().take(n_jobs).fold(0, |a, b| a + b));
 }
+
+// result: 8

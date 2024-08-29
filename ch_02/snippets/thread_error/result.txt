@@ -1,0 +1,18 @@
+Compiling thread_error v0.1.0 (/Users/songshuang/Desktop/black-hat-rust/ch_02/snippets/thread_error)
+error[E0382]: borrow of moved value: `my_vec`
+  --> src/main.rs:11:5
+   |
+4  |     let mut my_vec: Vec<i64> = Vec::new();
+   |         ---------- move occurs because `my_vec` has type `Vec<i64>`, which does not implement the `Copy` trait
+5  |
+6  |     thread::spawn(move || { // <- notice the move keyword here
+   |                   ------- value moved into closure here
+7  |     // thread::spawn(|| {
+8  |         add_to_vec(&mut my_vec);
+   |                         ------ variable moved due to use in closure
+...
+11 |     my_vec.push(34)
+   |     ^^^^^^ value borrowed here after move
+
+For more information about this error, try `rustc --explain E0382`.
+error: could not compile `thread_error` (bin "thread_error") due to previous error
