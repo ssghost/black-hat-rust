@@ -43,7 +43,11 @@ mod tests {
     fn filter() {
         let v = vec![-1, 2, -3, 4, 5].into_iter();
 
-        let _positive_numbers: Vec<i32> = v.filter(|x: &i32| x.is_positive()).collect();
+        let positive_numbers: Vec<i32> = v.filter(|x: &i32| x.is_positive()).collect();
+
+        for x in positive_numbers.iter() {
+            println!("{}", x);
+        };
     }
 
     #[test]
@@ -68,14 +72,18 @@ mod tests {
     fn reduce() {
         let values = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10].into_iter();
 
-        let _sum = values.reduce(|acc, x| acc + x);
+        let sum = values.reduce(|acc, x| acc + x);
+
+        println!("{:?}", sum);
     }
 
     #[test]
     fn fold() {
         let values = vec!["Hello", "World", "!"].into_iter();
 
-        let _sentence = values.fold(String::new(), |acc, x| acc + x);
+        let sentence = values.fold(String::new(), |acc, x| acc + x);
+
+        println!("{}", sentence);
     }
 
     #[test]
@@ -91,7 +99,7 @@ mod tests {
     fn map() {
         let v = vec!["Hello", "World", "!"].into_iter();
 
-        let w: Vec<String> = v.map(String::from).collect();
+        let _w: Vec<String> = v.map(String::from).collect();
     }
 
     #[test]
@@ -109,6 +117,10 @@ mod tests {
             .collect();
 
         assert_eq!(w, vec!["Hello".to_string(), "World".to_string()]);
+
+        for x in w.iter() {
+            println!("{}", x);
+    };
     }
 
     #[test]
@@ -142,26 +154,35 @@ mod tests {
             "",
         ];
 
-        let _only_positive_numbers: Vec<i64> = a
+        let only_positive_numbers: Vec<i64> = a
             .into_iter()
             .filter_map(|x| x.parse::<i64>().ok())
             .filter(|x| x > &0)
             .collect();
+
+        for x in only_positive_numbers.iter() {
+                println!("{}", x);
+        };
     }
 
     #[test]
     fn option_unwrap_or() {
-        let _port = std::env::var("PORT").ok().unwrap_or(String::from("8080"));
+        let port = std::env::var("PORT").ok().unwrap_or(String::from("8080"));
+        println!("{}", port);
     }
 
     #[test]
     fn result_ok() {
-        let _port: Option<String> = std::env::var("PORT").ok();
+        let port: Option<String> = std::env::var("PORT").ok();
+        println!("{:?}", port);
     }
 
     #[test]
     fn result_or() {
-        let _port: Result<String, std::env::VarError> =
+        let port: Result<String, std::env::VarError> =
             std::env::var("PORT").or(Ok(String::from("8080")));
+        println!("{:?}", port);
     }
 }
+
+// cargo test -- --nocapture

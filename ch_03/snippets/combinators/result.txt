@@ -1,0 +1,51 @@
+running 18 tests
+1
+2
+3
+2
+4
+5
+Hello
+World
+HelloWorld!
+Hello
+World
+!
+1
+2
+4
+100
+Before filter: -1
+Before filter: 2
+After filter: 2
+Before filter: -3
+Before filter: 4
+After filter: 4
+Before filter: 5
+After filter: 5
+None
+test tests::array ... Some(55)
+Hello: World
+8080
+ok
+test tests::collect ... ok
+Ok("8080")
+test tests::chain ... ok
+test tests::filter ... ok
+1
+2
+3
+test tests::filter_map ... ok
+test tests::flatten ... ok
+test tests::fold ... ok
+test tests::for_each ... ok
+test tests::combinators ... ok
+test tests::from_iter ... ok
+test tests::map ... ok
+test tests::inspect ... ok
+test tests::result_ok ... ok
+test tests::reduce ... ok
+test tests::hashmap ... ok
+test tests::option_unwrap_or ... ok
+test tests::result_or ... ok
+test tests::vector ... ok
