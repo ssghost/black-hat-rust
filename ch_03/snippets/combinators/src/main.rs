@@ -8,6 +8,7 @@ mod tests {
     fn vector() {
         let v = vec![1, 2, 3];
 
+        println!("Result for fn vector:");
         for x in v.into_iter() {
             println!("{}", x);
         }
@@ -18,6 +19,7 @@ mod tests {
         let mut h = HashMap::new();
         h.insert(String::from("Hello"), String::from("World"));
 
+        println!("Result for fn hashmap:"); 
         for (key, value) in h.iter() {
             println!("{}: {}", key, value);
         }
@@ -27,6 +29,7 @@ mod tests {
     fn array() {
         let a = [1, 2, 3];
 
+        println!("Result for fn array:");
         for x in a.iter() {
             println!("{}", x);
         }
@@ -45,6 +48,7 @@ mod tests {
 
         let positive_numbers: Vec<i32> = v.filter(|x: &i32| x.is_positive()).collect();
 
+        println!("Result for fn filter:");
         for x in positive_numbers.iter() {
             println!("{}", x);
         };
@@ -54,6 +58,7 @@ mod tests {
     fn inspect() {
         let v = vec![-1, 2, -3, 4, 5].into_iter();
 
+        println!("Result for fn inspect:");
         let _positive_numbers: Vec<i32> = v
             .inspect(|x| println!("Before filter: {}", x))
             .filter(|x: &i32| x.is_positive())
@@ -74,6 +79,7 @@ mod tests {
 
         let sum = values.reduce(|acc, x| acc + x);
 
+        println!("Result for fn reduce:");
         println!("{:?}", sum);
     }
 
@@ -83,6 +89,7 @@ mod tests {
 
         let sentence = values.fold(String::new(), |acc, x| acc + x);
 
+        println!("Result for fn fold:");
         println!("{}", sentence);
     }
 
@@ -90,6 +97,7 @@ mod tests {
     fn for_each() {
         let v = vec!["Hello", "World", "!"].into_iter();
 
+        println!("Result for fn for_each:");
         v.for_each(|word| {
             println!("{}", word);
         });
@@ -117,7 +125,8 @@ mod tests {
             .collect();
 
         assert_eq!(w, vec!["Hello".to_string(), "World".to_string()]);
-
+        
+        println!("Result for fn filter_map:");
         for x in w.iter() {
             println!("{}", x);
     };
@@ -160,6 +169,7 @@ mod tests {
             .filter(|x| x > &0)
             .collect();
 
+        println!("Result for fn combinators:");
         for x in only_positive_numbers.iter() {
                 println!("{}", x);
         };
@@ -168,12 +178,14 @@ mod tests {
     #[test]
     fn option_unwrap_or() {
         let port = std::env::var("PORT").ok().unwrap_or(String::from("8080"));
+        println!("Result for fn option_umwrap_or:");
         println!("{}", port);
     }
 
     #[test]
     fn result_ok() {
         let port: Option<String> = std::env::var("PORT").ok();
+        println!("Result for fn result_ok:");
         println!("{:?}", port);
     }
 
@@ -181,6 +193,7 @@ mod tests {
     fn result_or() {
         let port: Result<String, std::env::VarError> =
             std::env::var("PORT").or(Ok(String::from("8080")));
+        println!("Result for fn result_or:");
         println!("{:?}", port);
     }
 }
