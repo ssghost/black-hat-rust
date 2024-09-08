@@ -1,4 +1,4 @@
-use clap::{Command, Arg};
+use clap::{Arg, Command};
 use std::{env, sync::Arc, time::Duration};
 
 mod crawler;

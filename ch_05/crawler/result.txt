@@ -1,0 +1,6 @@
+cvedetails
+github
+quotes
+[2024-09-08T10:54:02Z DEBUG crawler::crawler] queueing: https://www.cvedetails.com/vulnerability-list/published_since-2023-09-08/?page=51&order=1
+[2024-09-08T10:54:02Z INFO  crawler::spiders::cvedetails] visiting: https://www.cvedetails.com/vulnerability-list/published_since-2023-09-08/?page=51&order=1
+[2024-09-08T10:54:03Z INFO  crawler::crawler] crawler: control loop exited
